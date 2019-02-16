@@ -47,7 +47,7 @@ for this code to work.
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 Jonas Östlund
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
