@@ -1,7 +1,8 @@
 (ns exampler.tutorialize
   (:import [java.io File])
   (:require [clojure.string :as cljstr]
-            [clojure.spec.alpha :as spec]))
+            [clojure.spec.alpha :as spec]
+            [clojure.java.io :as io]))
 
 (defn delimiting-line? [x]
   {:pre [(string? x)]}
@@ -37,6 +38,9 @@
   {:pre [(string? filename)]}
   (if-let [index (cljstr/last-index-of filename ".")]
     (str (subs filename 0 index) "." new-suffix)))
+
+(defn output-filename-in-dir [filename output-dir]
+  (io/file output-dir (replace-suffix (.getName (io/file filename)) "md")))
 
 (defn surround-block [[type data]]
   (case type
